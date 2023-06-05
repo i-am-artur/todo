@@ -1,11 +1,12 @@
-# Todo list pet-project
+# Todo list (pet-project)
+Plan, manage, and track your tasks
 
 React app:
+- User registration and login with JWT emulation.
 - MUI library for layout, components and display mode (dark/light)
 - emotion for css
 - React router for navigation between pages
 - Redux and reduxjs/toolkit with use of middleware and thunk 
-- User register and login with JWT emulation.
 - Zod for form validation
 - axios-mock-adapter-path-params for server/api emulation
 - typescript to add type safety to the project
