@@ -1,10 +1,12 @@
-import Button from 'components/Button';
+import Router from 'components/Router/Router';
+import { BrowserRouter } from 'react-router-dom';
+import React from 'react';
 
 function App() {
   return (
-    <div className='App'>
-      <Button />
-    </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 
