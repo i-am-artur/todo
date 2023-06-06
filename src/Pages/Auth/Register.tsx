@@ -4,7 +4,7 @@ import { positionCenter } from 'styles/common';
 import { container, form, padding } from 'styles/variables';
 import { Link, useNavigate } from 'react-router-dom';
 import { routes } from 'common/routes';
-import { useRef, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import { fetchRegister } from 'services/auth';
 
 const noFormErrors: { [key: string]: string | undefined } = {
@@ -22,7 +22,8 @@ export default function Register() {
   const [formError, setFormError] = useState(noFormErrors);
   const [error, setError] = useState('');
 
-  async function register() {
+  function register(event: FormEvent) {
+    event.preventDefault();
     setFormError(noFormErrors);
     setError('');
     setLoading(true);
@@ -54,7 +55,7 @@ export default function Register() {
       <Typography variant='pageHeading'>Register</Typography>
 
       <Stack sx={positionCenter} width='100%' maxWidth={400}>
-        <form>
+        <form onSubmit={register}>
           <Stack spacing={form.gap.v}>
             <TextField
               inputRef={email}

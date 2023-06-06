@@ -46,15 +46,18 @@ export default function TodoList() {
     <Fragment>
       <Stack
         component='ul'
-        spacing={feature.gap.v}
+        gap={feature.gap.v}
         sx={{
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          display: 'grid',
+
           '& .MuiCard-root': {
             border: '1px solid #e5e5e5',
           },
         }}
       >
         {filteredTodos.map((el) => (
-          <li key={el.id}>
+          <Stack component='li' key={el.id}>
             <Card
               onClick={() => {
                 setError('');
@@ -69,7 +72,7 @@ export default function TodoList() {
                 <p>{el.note}</p>
               </CardContent>
             </Card>
-          </li>
+          </Stack>
         ))}
       </Stack>
       <Todo

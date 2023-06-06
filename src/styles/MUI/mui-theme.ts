@@ -66,8 +66,8 @@ export const theme = {
       xs: 0,
       sm: 320,
       md: 450,
-      lg: 1024,
-      xl: 1200,
+      lg: 900,
+      xl: 1024,
     },
   },
 };

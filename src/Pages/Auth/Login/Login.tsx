@@ -3,7 +3,7 @@ import { positionCenter } from 'styles/common';
 import { container, form, padding } from 'styles/variables';
 import { Link, useNavigate } from 'react-router-dom';
 import { routes } from 'common/routes';
-import { useContext, useRef, useState } from 'react';
+import { FormEvent, useContext, useRef, useState } from 'react';
 import { AuthContext } from 'components/Router/Router';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { fetchLogin } from 'services/auth';
@@ -23,7 +23,8 @@ export default function Login() {
   const [formError, setFormError] = useState(noFormErrors);
   const [error, setError] = useState('');
 
-  async function login() {
+  function login(event: FormEvent) {
+    event.preventDefault();
     setLoading(true);
     fetchLogin(email.current?.value ?? '', password.current?.value ?? '')
       .then((res) => {
@@ -57,7 +58,7 @@ export default function Login() {
         width='100%'
         maxWidth={400}
       >
-        <form>
+        <form onSubmit={login}>
           <Stack spacing={form.gap.v}>
             <TextField
               inputRef={email}
@@ -83,7 +84,6 @@ export default function Login() {
             </Stack>
             <LoadingButton
               type='submit'
-              onSubmit={login}
               loading={loading}
               sx={{ mt: '60px' }}
               size='large'
